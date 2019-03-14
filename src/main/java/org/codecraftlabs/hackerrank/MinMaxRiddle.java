@@ -24,9 +24,7 @@ public class MinMaxRiddle {
     }
 
     private long findMinimum(long[] numbers) {
-        List<Long> list = Arrays.stream(numbers).boxed().collect(Collectors.toList());
-        Collections.sort(list);
-        return list.get(0);
+        return Arrays.stream(numbers).boxed().sorted().collect(Collectors.toList()).get(0);
     }
 
     private List<long[]> splitArray(int chunks, long[] array) {
