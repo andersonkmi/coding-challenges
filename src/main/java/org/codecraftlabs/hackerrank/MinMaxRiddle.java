@@ -49,10 +49,4 @@ public class MinMaxRiddle {
         }
         return result;
     }
-
-    public static void main(String[] args) {
-        MinMaxRiddle service = new MinMaxRiddle();
-        long[] elements = {1, 2, 3, 4};
-        long[] res = service.riddle(elements);
-    }
 }
