@@ -2,16 +2,19 @@ package org.codecraftlabs;
 
 import java.util.*;
 
+import static java.util.Map.Entry.comparingByValue;
+import static java.util.stream.Collectors.*;
+
+
 public class FrequencyQueries {
     public List<Integer> freqQuery(List<List<Integer>> queries) {
         Map<Integer, Integer> database = new HashMap<>();
         List<Integer> results = new ArrayList<>();
 
         queries.forEach(line -> {
-            Integer operation = line.get(0);
             Integer value = line.get(1);
 
-            switch (operation) {
+            switch (line.get(0)) {
                 case 1:
                     database.put(value, database.getOrDefault(value, 0) + 1);
                     break;
@@ -36,6 +39,6 @@ public class FrequencyQueries {
 
     private Integer hasNumberOfInstances(Integer value, Map<Integer, Integer> database) {
         Set<Map.Entry<Integer, Integer>> entries = database.entrySet();
-        return entries.parallelStream().filter(item -> item.getValue().equals(value)).count() > 0 ? 1 : 0;
+        return entries.stream().anyMatch(item -> item.getValue().equals(value)) ? 1 : 0;
     }
 }
