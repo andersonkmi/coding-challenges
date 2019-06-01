@@ -2,10 +2,6 @@ package org.codecraftlabs;
 
 import java.util.*;
 
-import static java.util.Map.Entry.comparingByValue;
-import static java.util.stream.Collectors.*;
-
-
 public class FrequencyQueries {
     public List<Integer> freqQuery(List<List<Integer>> queries) {
         Map<Integer, Integer> database = new HashMap<>();
