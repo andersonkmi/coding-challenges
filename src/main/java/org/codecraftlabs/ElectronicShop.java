@@ -9,9 +9,9 @@ public class ElectronicShop {
         List<Integer> totalCombinations = new ArrayList<>();
 
         // Perform price combinations
-        for(int i = 0; i < keyboards.length; i++) {
-            for(int j = 0; j < drives.length; j++) {
-                int total = keyboards[i] + drives[j];
+        for (int keyboard : keyboards) {
+            for (int drive : drives) {
+                int total = keyboard + drive;
                 if (total <= b) {
                     totalCombinations.add(total);
                 }
