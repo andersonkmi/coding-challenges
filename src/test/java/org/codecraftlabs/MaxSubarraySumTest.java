@@ -1,6 +1,5 @@
 package org.codecraftlabs;
 
-import org.codecraftlabs.MaxSubarraySum;
 import org.junit.Before;
 import org.junit.Test;
 
