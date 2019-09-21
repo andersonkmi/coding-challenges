@@ -1,20 +1,21 @@
 package org.sharpsw.leetcode;
 
-import org.junit.Test;
-import org.junit.Before;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class StrStrTest {
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
+class StrStrTest {
     private StrStr service;
 
-    @Before
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
         service = new StrStr();
     }
 
     @Test
-    public void shouldSupportEmptyInput() {
+    void shouldSupportEmptyInput() {
         assertThat(service.strStr("", ""), is(0));
     }
 }

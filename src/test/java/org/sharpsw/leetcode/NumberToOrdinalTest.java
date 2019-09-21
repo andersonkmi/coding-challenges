@@ -1,17 +1,17 @@
 package org.sharpsw.leetcode;
 
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class NumberToOrdinalTest {
+class NumberToOrdinalTest {
     @Test
-    public void shouldHandleZeroValue() {
+    void shouldHandleZeroValue() {
         NumberToOrdinal service = new NumberToOrdinal();
         assertEquals("0", service.numberToOrdinal(0));
     }
 
     @Test
-    public void shouldHandleSingleDigits() {
+    void shouldHandleSingleDigits() {
         NumberToOrdinal service = new NumberToOrdinal();
 
         assertEquals("1st", service.numberToOrdinal(1));
@@ -26,7 +26,7 @@ public class NumberToOrdinalTest {
     }
 
     @Test
-    public void shouldHandleDoubleDigits() {
+    void shouldHandleDoubleDigits() {
         NumberToOrdinal service = new NumberToOrdinal();
 
         assertEquals("11th", service.numberToOrdinal(11));
@@ -49,7 +49,7 @@ public class NumberToOrdinalTest {
     }
 
     @Test
-    public void shouldHandleTripleDigits() {
+    void shouldHandleTripleDigits() {
         NumberToOrdinal service = new NumberToOrdinal();
 
         assertEquals("111th", service.numberToOrdinal(111));
@@ -66,7 +66,7 @@ public class NumberToOrdinalTest {
 
 
     @Test
-    public void shouldHandleZeroFinishedNumbers() {
+    void shouldHandleZeroFinishedNumbers() {
         NumberToOrdinal service = new NumberToOrdinal();
         
         assertEquals("10th", service.numberToOrdinal(10));

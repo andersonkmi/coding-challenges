@@ -1,21 +1,21 @@
 package org.sharpsw.leetcode;
 
+import static org.hamcrest.CoreMatchers.is;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.*;
-import org.junit.Before;
-import org.junit.Test;
 
-import static org.junit.Assert.assertThat;
-
-public class AddTwoNumbersTest {
+class AddTwoNumbersTest {
     private AddTwoNumbers cut;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         cut = new AddTwoNumbers();
     }
 
     @Test
-    public void addSymmetricNumbers() {
+    void addSymmetricNumbers() {
         ListNode root1 = new ListNode(1);
         ListNode root2 = new ListNode(2);
 
@@ -27,14 +27,14 @@ public class AddTwoNumbersTest {
     }
 
     @Test
-    public void addEmptyLists() {
+    void addEmptyLists() {
         ListNode result = cut.addTwoNumbers(null, null);
 
         assertThat(result, nullValue());
     }
 
     @Test
-    public void addWithOneNullList() {
+    void addWithOneNullList() {
         ListNode root1 = new ListNode(5);
         ListNode result = cut.addTwoNumbers(root1, null);
 
@@ -44,7 +44,7 @@ public class AddTwoNumbersTest {
     }
 
     @Test
-    public void addTwoNodeLists() {
+    void addTwoNodeLists() {
         ListNode root11 = new ListNode(1);
         ListNode root12 = new ListNode(2);
         root11.next = root12;
@@ -61,7 +61,7 @@ public class AddTwoNumbersTest {
     }
 
     @Test
-    public void addTwoNodeListsWithCarrying() {
+    void addTwoNodeListsWithCarrying() {
         ListNode root11 = new ListNode(1);
         ListNode root12 = new ListNode(7);
         root11.next = root12;

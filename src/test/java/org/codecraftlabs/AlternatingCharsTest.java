@@ -1,40 +1,38 @@
 package org.codecraftlabs;
 
-import org.codecraftlabs.AlternatingChars;
-import org.junit.Before;
-import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-
-public class AlternatingCharsTest {
+class AlternatingCharsTest {
     private AlternatingChars cut;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         cut = new AlternatingChars();
     }
 
     @Test
-    public void testCase001() {
+    void testCase001() {
         String input = "AB";
         assertThat(cut.alternatingCharacters(input), is(0));
     }
 
     @Test
-    public void testCase002() {
+    void testCase002() {
         String input = "AAB";
         assertThat(cut.alternatingCharacters(input), is(1));
     }
 
     @Test
-    public void testCase003() {
+    void testCase003() {
         String input = "AAAA";
         assertThat(cut.alternatingCharacters(input), is(3));
     }
 
     @Test
-    public void testCase004() {
+    void testCase004() {
         String input = "AAABBB";
         assertThat(cut.alternatingCharacters(input), is(4));
     }

@@ -1,42 +1,42 @@
 package org.sharpsw.leetcode;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
-public class ReverseIntegerTest {
+class ReverseIntegerTest {
 
     private ReverseInteger service;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         service = new ReverseInteger();
     }
 
     @Test
-    public void shouldRevertZero() {
+    void shouldRevertZero() {
         assertThat(service.reverse(0), is(0));
     }
 
     @Test
-    public void shouldRevertSingleNumber() {
+    void shouldRevertSingleNumber() {
         assertThat(service.reverse(1), is(1));
     }
 
     @Test
-    public void shouldRevert2DigitNumber() {
+    void shouldRevert2DigitNumber() {
         assertThat(service.reverse(12), is(21));
     }
 
     @Test
-    public void shouldRevert2DigitNumberZeroEnded() {
+    void shouldRevert2DigitNumberZeroEnded() {
         assertThat(service.reverse(30), is(3));
     }
 
     @Test
-    public void shouldRevertNeg2DigitNumberZeroEnded() {
+    void shouldRevertNeg2DigitNumberZeroEnded() {
         assertThat(service.reverse(-30), is(-3));
     }
 }

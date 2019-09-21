@@ -1,9 +1,7 @@
 package org.codecraftlabs;
 
-import org.codecraftlabs.SinglyLinkedListNode;
-
-public class SinglyLinkedListUtil {
-    public static int count(SinglyLinkedListNode root) {
+class SinglyLinkedListUtil {
+    static int count(SinglyLinkedListNode root) {
         int counter = 0;
         SinglyLinkedListNode node = root;
         while(node != null) {
@@ -13,7 +11,7 @@ public class SinglyLinkedListUtil {
         return counter;
     }
 
-    public static String prettyPrint(SinglyLinkedListNode root) {
+    static String prettyPrint(SinglyLinkedListNode root) {
         StringBuilder buffer = new StringBuilder();
 
         SinglyLinkedListNode node = root;

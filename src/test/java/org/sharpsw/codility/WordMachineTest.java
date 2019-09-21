@@ -1,21 +1,20 @@
 package org.sharpsw.codility;
 
-import org.junit.Before;
-import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-
-public class WordMachineTest {
+class WordMachineTest {
     private Scheduler sut;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         sut = new Scheduler();
     }
 
     @Test
-    public void testCase001() {
+    void testCase001() {
         assertThat(sut.solution("Sun 10:00-20:00\n" +
                 "Fri 05:00-10:00\n" +
                 "Fri 16:30-23:50\n" +
@@ -32,7 +31,7 @@ public class WordMachineTest {
     }
 
     @Test
-    public void testCase002() {
+    void testCase002() {
         assertThat(sut.solution("Mon 01:00-23:00\n" +
                 "Tue 01:00-23:00\n" +
                 "Wed 01:00-23:00\n" +

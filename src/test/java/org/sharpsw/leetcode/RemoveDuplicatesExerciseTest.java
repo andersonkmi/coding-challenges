@@ -1,28 +1,27 @@
 package org.sharpsw.leetcode;
 
-import org.junit.Before;
-import org.junit.Test;
-
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-public class RemoveDuplicatesExerciseTest {
+class RemoveDuplicatesExerciseTest {
 
     private RemoveDuplicatesExercise cut;
 
-    @Before
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
         cut = new RemoveDuplicatesExercise();
     }
 
     @Test
-    public void testCase001() {
+    void testCase001() {
         int[] nums = {1, 1, 2};
         assertThat(cut.removeDuplicates(nums), is(2));
     }
 
     @Test
-    public void testCase002() {
+    void testCase002() {
         int[] nums = {1, 1, 2, 3, 3, 4};
         assertThat(cut.removeDuplicates(nums), is(4));
     }

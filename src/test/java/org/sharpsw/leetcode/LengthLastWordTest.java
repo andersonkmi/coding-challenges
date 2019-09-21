@@ -1,21 +1,22 @@
 package org.sharpsw.leetcode;
 
-import org.junit.Before;
-import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class LengthLastWordTest {
     private LengthLastWord cut;
 
-    @Before
+    @BeforeEach
     public void setup() {
         cut = new LengthLastWord();
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void shouldRaiseExceptionWithNullArgument() {
-        cut.lengthOfLastWord(null);
+        assertThrows(IllegalArgumentException.class, () -> cut.lengthOfLastWord(null));
     }
 
     @Test

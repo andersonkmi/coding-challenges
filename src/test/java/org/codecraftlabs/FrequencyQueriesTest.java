@@ -1,23 +1,23 @@
 package org.codecraftlabs;
 
-import org.junit.Before;
-import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FrequencyQueriesTest {
+class FrequencyQueriesTest {
     private FrequencyQueries cut;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         cut = new FrequencyQueries();
     }
 
     @Test
-    public void testCase001() {
+    void testCase001() {
         List<List<Integer>> queries = new ArrayList<>();
 
         // Insert 1
@@ -57,7 +57,7 @@ public class FrequencyQueriesTest {
 
 
     @Test
-    public void testCase002() {
+    void testCase002() {
         List<List<Integer>> queries = new ArrayList<>();
 
         // Insert 1
@@ -90,7 +90,7 @@ public class FrequencyQueriesTest {
     }
 
     @Test
-    public void testCase003() {
+    void testCase003() {
         List<List<Integer>> queries = new ArrayList<>();
 
         // Insert 1
@@ -154,7 +154,7 @@ public class FrequencyQueriesTest {
     }
 
     @Test
-    public void testCase004() {
+    void testCase004() {
         List<List<Integer>> queries = new ArrayList<>();
 
         List<Integer> item1 = new ArrayList<>();

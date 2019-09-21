@@ -1,40 +1,40 @@
 package org.sharpsw.leetcode;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-public class LongestSubstringExerciseTest {
+class LongestSubstringExerciseTest {
     private LongestSubstringExercise classUnderTest;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         classUnderTest = new LongestSubstringExercise();
     }
 
     @Test
-    public void testCase001() {
+    void testCase001() {
         assertThat(classUnderTest.lengthOfLongestSubstring("abca"), is(3));
     }
 
     @Test
-    public void testCase002() {
+    void testCase002() {
         assertThat(classUnderTest.lengthOfLongestSubstring("bbbbbbb"), is(1));
     }
 
     @Test
-    public void testCase003() {
+    void testCase003() {
         assertThat(classUnderTest.lengthOfLongestSubstring("aabcd"), is(4));
     }
 
     @Test
-    public void testCase004() {
+    void testCase004() {
         assertThat(classUnderTest.lengthOfLongestSubstring("pwwkew"), is(3));
     }
 
     @Test
-    public void testCase005() {
+    void testCase005() {
         assertThat(classUnderTest.lengthOfLongestSubstring("dvdf"), is(3));
     }
 }

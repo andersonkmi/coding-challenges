@@ -1,32 +1,28 @@
 package org.codecraftlabs;
 
-import org.codecraftlabs.ReverseLinkedList;
-import org.codecraftlabs.SinglyLinkedList;
-import org.codecraftlabs.SinglyLinkedListNode;
-import org.junit.Before;
-import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.CoreMatchers.not;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-
-public class ReverseLinkedListTest {
+class ReverseLinkedListTest {
     private ReverseLinkedList sut;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         sut = new ReverseLinkedList();
     }
 
 
     @Test
-    public void reverseNullLinkedList() {
+    void reverseNullLinkedList() {
         assertThat(sut.reverse(null), is(nullValue()));
     }
 
     @Test
-    public void reverseSingleLinkedList() {
+    void reverseSingleLinkedList() {
         SinglyLinkedList list = new SinglyLinkedList();
         list.insertNode(0);
         SinglyLinkedListNode root = list.head;
@@ -37,7 +33,7 @@ public class ReverseLinkedListTest {
     }
 
     @Test
-    public void reverseLinkedListCase001() {
+    void reverseLinkedListCase001() {
         SinglyLinkedList list = new SinglyLinkedList();
         list.insertNode(0);
         list.insertNode(1);

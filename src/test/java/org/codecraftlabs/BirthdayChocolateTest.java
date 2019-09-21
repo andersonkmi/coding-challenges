@@ -1,25 +1,23 @@
 package org.codecraftlabs;
 
-import org.codecraftlabs.BirthdayChocolate;
-import org.junit.Before;
-import org.junit.Test;
-
 import java.util.LinkedList;
 import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
-public class BirthdayChocolateTest {
+class BirthdayChocolateTest {
     private BirthdayChocolate sut;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         sut = new BirthdayChocolate();
     }
 
     @Test
-    public void testCase001() {
+    void testCase001() {
         List<Integer> slices = new LinkedList<>();
         slices.add(1);
         slices.add(2);
@@ -32,7 +30,7 @@ public class BirthdayChocolateTest {
     }
 
     @Test
-    public void testCase002() {
+    void testCase002() {
         List<Integer> slices = new LinkedList<>();
         slices.add(1);
         slices.add(1);
@@ -45,7 +43,7 @@ public class BirthdayChocolateTest {
     }
 
     @Test
-    public void testCase003() {
+    void testCase003() {
         List<Integer> slices = new LinkedList<>();
         slices.add(4);
 

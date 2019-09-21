@@ -6,11 +6,9 @@
  * user guide available at https://docs.gradle.org/4.5/userguide/java_library_plugin.html
  */
 
-plugins {
-    // Apply the java-library plugin to add support for Java Library
-    id 'java-library'
-    id 'jacoco'
-}
+apply plugin: 'jacoco'
+apply plugin: 'java'
+apply plugin: 'findbugs'
 
 jacoco {
     toolVersion = "0.8.2"
@@ -18,14 +16,13 @@ jacoco {
 }
 
 dependencies {
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api 'org.apache.commons:commons-math3:3.6.1'
-
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:23.0'
 
     // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    testImplementation 'org.hamcrest:hamcrest-library:2.1'
 }
 
 // In this section you declare where to find the dependencies of your project

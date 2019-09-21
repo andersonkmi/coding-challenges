@@ -1,36 +1,35 @@
 package org.codecraftlabs;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-public class CountWaysTest {
+class CountWaysTest {
     private CountWays cut;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         cut = new CountWays();
     }
 
     @Test
-    public void testOneStepLadder() {
+    void testOneStepLadder() {
         assertThat(cut.countWays(1, 3), is(1));
     }
 
     @Test
-    public void testTwoStepLadder() {
+    void testTwoStepLadder() {
         assertThat(cut.countWays(2, 3), is(2));
     }
 
     @Test
-    public void test3StepLadder() {
+    void test3StepLadder() {
         assertThat(cut.countWays(3, 3), is(4));
     }
 
     @Test
-    public void test4StepLadder() {
+    void test4StepLadder() {
         assertThat(cut.countWays(4, 4), is(8));
     }
-
 }

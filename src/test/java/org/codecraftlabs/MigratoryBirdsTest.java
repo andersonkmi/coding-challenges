@@ -1,25 +1,22 @@
 package org.codecraftlabs;
 
-import org.codecraftlabs.MigratoryBirds;
-import org.junit.Before;
-import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.CoreMatchers.not;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MigratoryBirdsTest {
+class MigratoryBirdsTest {
     private MigratoryBirds sut;
 
-    @Before
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
         sut = new MigratoryBirds();
     }
 
     @Test
-    public void testCase001() {
+    void testCase001() {
         List<Integer> items = new LinkedList<>();
         items.add(1);
         items.add(4);
@@ -32,7 +29,7 @@ public class MigratoryBirdsTest {
     }
 
     @Test
-    public void testCase002() {
+    void testCase002() {
         List<Integer> items = new LinkedList<>();
         items.add(1);
         items.add(2);

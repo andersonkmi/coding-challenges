@@ -1,29 +1,28 @@
 package org.codecraftlabs;
 
-import org.junit.Before;
-import org.junit.Test;
-
+import static org.hamcrest.CoreMatchers.is;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.codecraftlabs.SinglyLinkedListUtil.count;
 import static org.codecraftlabs.SinglyLinkedListUtil.prettyPrint;
-import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
-import static org.junit.Assert.assertThat;
 
-public class DeleteDuplicateValueNodesTest {
+class DeleteDuplicateValueNodesTest {
     private DeleteDuplicateValueNodes sut;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         sut = new DeleteDuplicateValueNodes();
     }
 
     @Test
-    public void testNullList() {
+    void testNullList() {
         assertThat(sut.removeDuplicates(null), is(nullValue()));
     }
 
     @Test
-    public void testSingleNodeList() {
+    void testSingleNodeList() {
         SinglyLinkedListNode node = new SinglyLinkedListNode(2);
         SinglyLinkedListNode root = sut.removeDuplicates(node);
 
@@ -32,7 +31,7 @@ public class DeleteDuplicateValueNodesTest {
     }
 
     @Test
-    public void testDoubleNodeListNoDuplicate() {
+    void testDoubleNodeListNoDuplicate() {
         SinglyLinkedListNode node1 = new SinglyLinkedListNode(2);
         SinglyLinkedListNode node2 = new SinglyLinkedListNode(3);
         node1.next = node2;
@@ -43,7 +42,7 @@ public class DeleteDuplicateValueNodesTest {
     }
 
     @Test
-    public void testDoubleNodeListWithDuplicate() {
+    void testDoubleNodeListWithDuplicate() {
         SinglyLinkedListNode node1 = new SinglyLinkedListNode(2);
         SinglyLinkedListNode node2 = new SinglyLinkedListNode(2);
         node1.next = node2;
@@ -55,7 +54,7 @@ public class DeleteDuplicateValueNodesTest {
     }
 
     @Test
-    public void testDuplicateRemoval() {
+    void testDuplicateRemoval() {
         SinglyLinkedListNode node1 = new SinglyLinkedListNode(1);
         SinglyLinkedListNode node2 = new SinglyLinkedListNode(2);
         SinglyLinkedListNode node3 = new SinglyLinkedListNode(3);
@@ -74,7 +73,7 @@ public class DeleteDuplicateValueNodesTest {
     }
 
     @Test
-    public void testRemoveDuplicateFromEnd() {
+    void testRemoveDuplicateFromEnd() {
         SinglyLinkedListNode node1 = new SinglyLinkedListNode(1);
         SinglyLinkedListNode node2 = new SinglyLinkedListNode(2);
         SinglyLinkedListNode node3 = new SinglyLinkedListNode(3);

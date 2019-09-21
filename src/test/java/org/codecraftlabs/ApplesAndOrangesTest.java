@@ -1,22 +1,22 @@
 package org.codecraftlabs;
 
-import org.codecraftlabs.ApplesAndOranges;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
-public class ApplesAndOrangesTest {
+class ApplesAndOrangesTest {
     private ApplesAndOranges sut;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         sut = new ApplesAndOranges();
     }
 
     @Test
-    public void testCase001() {
+    void testCase001() {
         int[] apples = {2, 3, -4};
         int [] oranges = {3, -2, -4};
 

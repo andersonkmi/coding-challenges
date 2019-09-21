@@ -1,16 +1,15 @@
 package org.sharpsw.codility;
 
-import org.junit.Before;
-import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-
-public class SixLeastDigitsFibonacciTest {
+class SixLeastDigitsFibonacciTest {
     private SixLeastDigitsFibonacci service;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         service = new SixLeastDigitsFibonacci();
     }
 

@@ -1,25 +1,26 @@
 package org.sharpsw.leetcode;
 
 import static org.hamcrest.CoreMatchers.*;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-public class RemoveDuplicatesSortedLinkedListTest {
+
+class RemoveDuplicatesSortedLinkedListTest {
     private RemoveDuplicatesSortedLinkedList cut;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         cut = new RemoveDuplicatesSortedLinkedList();
     }
 
     @Test
-    public void shouldSupportEmptyList() {
+    void shouldSupportEmptyList() {
         assertThat(cut.deleteDuplicates(null), nullValue());
     }
 
     @Test
-    public void shouldSupportSingleItemList() {
+    void shouldSupportSingleItemList() {
         ListNode item = new ListNode(4);
 
         assertThat(ListNodeUtils.getLength(cut.deleteDuplicates(item)), is(1));
@@ -27,7 +28,7 @@ public class RemoveDuplicatesSortedLinkedListTest {
     }
 
     @Test
-    public void testCase001() {
+    void testCase001() {
         ListNode item = new ListNode(4);
         ListNode item2 = new ListNode(4);
         item.next = item2;
@@ -37,7 +38,7 @@ public class RemoveDuplicatesSortedLinkedListTest {
     }
 
     @Test
-    public void testCase002() {
+    void testCase002() {
         ListNode item = new ListNode(4);
         ListNode item2 = new ListNode(4);
         item.next = item2;

@@ -1,11 +1,12 @@
 package org.sharpsw.leetcode;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class RemoveNthFromListTest {
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+
+class RemoveNthFromListTest {
     private RemoveNthFromList service;
 
     private String printList(ListNode root) {
@@ -23,25 +24,25 @@ public class RemoveNthFromListTest {
         return "";
     }
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         service = new RemoveNthFromList();
     }
 
     @Test
-    public void shouldSupportEmptyList() {
+    void shouldSupportEmptyList() {
         ListNode head = null;
         assertThat(service.removeNthFromEnd(head, 0), nullValue());
     }
 
     @Test
-    public void shouldSupportSingleItemList() {
+    void shouldSupportSingleItemList() {
         ListNode root = new ListNode(9);
         assertThat(service.removeNthFromEnd(root, 1), nullValue());
     }
 
     @Test
-    public void shouldSupportSingleItemListInvalidPosition() {
+    void shouldSupportSingleItemListInvalidPosition() {
         ListNode root = new ListNode(9);
         ListNode result = service.removeNthFromEnd(root, 2);
         assertThat(result, notNullValue());
@@ -50,7 +51,7 @@ public class RemoveNthFromListTest {
     }
 
     @Test
-    public void removeMiddleElementOK() {
+    void removeMiddleElementOK() {
         ListNode root = new ListNode(9);
         ListNode second = new ListNode(10);
         ListNode third = new ListNode(11);
@@ -65,7 +66,7 @@ public class RemoveNthFromListTest {
     }
 
     @Test
-    public void removeElementOK() {
+    void removeElementOK() {
         ListNode item1 = new ListNode(9);
         ListNode item2 = new ListNode(10);
         ListNode item3 = new ListNode(11);

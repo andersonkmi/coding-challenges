@@ -1,45 +1,46 @@
 package org.sharpsw.leetcode;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class SearchInsertPositionTest {
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
+class SearchInsertPositionTest {
     private SearchInsertPosition service;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         service = new SearchInsertPosition();
     }
 
     @Test
-    public void shouldSupportEmptyArray() {
+    void shouldSupportEmptyArray() {
         int[] numbers = {};
 
         assertThat(service.searchInsert(numbers, 0), is(0));
     }
 
     @Test
-    public void testCase001() {
+    void testCase001() {
         int[] numbers = {1, 3, 5, 6};
         assertThat(service.searchInsert(numbers, 5), is(2));
     }
 
     @Test
-    public void testCase002() {
+    void testCase002() {
         int[] numbers = {1, 3, 5, 6};
         assertThat(service.searchInsert(numbers, 2), is(1));
     }
 
     @Test
-    public void testCase003() {
+    void testCase003() {
         int[] numbers = {1, 3, 5, 6};
         assertThat(service.searchInsert(numbers, 1), is(0));
     }
 
     @Test
-    public void testCase004() {
+    void testCase004() {
         int[] numbers = {1, 3, 5, 6};
         assertThat(service.searchInsert(numbers, 7), is(4));
     }

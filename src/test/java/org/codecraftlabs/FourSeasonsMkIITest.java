@@ -1,37 +1,33 @@
 package org.codecraftlabs;
 
-import org.codecraftlabs.FourSeasonsMkII;
-import org.codecraftlabs.WeatherSeason;
-import org.junit.Before;
-import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.CoreMatchers.not;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-public class FourSeasonsMkIITest {
+class FourSeasonsMkIITest {
     private FourSeasonsMkII cut;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         cut = new FourSeasonsMkII();
     }
 
     @Test
-    public void testCase001() {
+    void testCase001() {
         int[] temps = {-3, -14, -5, 7, 8, 42, 8, 3};
 
         assertThat(cut.solution(temps), is("SUMMER"));
     }
 
     @Test
-    public void testCase002() {
+    void testCase002() {
         int[] temps = {2, -3, 3, 1, 10, 8, 2, 5, 13, -5, 3, -18};
         assertThat(cut.solution(temps), is("AUTUMN"));
     }
 
     @Test
-    public void testCase003() {
+    void testCase003() {
         WeatherSeason season = new WeatherSeason("Teste");
         season.addTemperature(100);
         season.addTemperature(30);
@@ -40,7 +36,7 @@ public class FourSeasonsMkIITest {
     }
 
     @Test
-    public void testCase004() {
+    void testCase004() {
         WeatherSeason season = new WeatherSeason("Teste");
         season.addTemperature(100);
         season.addTemperature(30);
@@ -50,7 +46,7 @@ public class FourSeasonsMkIITest {
     }
 
     @Test
-    public void testCase005() {
+    void testCase005() {
         WeatherSeason season = new WeatherSeason("Teste");
         season.addTemperature(100);
         season.addTemperature(-70);

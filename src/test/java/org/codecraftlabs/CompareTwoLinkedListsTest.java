@@ -1,28 +1,26 @@
 package org.codecraftlabs;
 
-import org.codecraftlabs.CompareTwoLinkedLists;
-import org.codecraftlabs.SinglyLinkedListNode;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
-public class CompareTwoLinkedListsTest {
+class CompareTwoLinkedListsTest {
     private CompareTwoLinkedLists sut;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         sut = new CompareTwoLinkedLists();
     }
 
     @Test
-    public void testNullNodes() {
+    void testNullNodes() {
         assertThat(sut.compareLists(null, null), is(true));
     }
 
     @Test
-    public void testNullNode() {
+    void testNullNode() {
         SinglyLinkedListNode head = new SinglyLinkedListNode(1);
 
         assertThat(sut.compareLists(head, null), is(false));

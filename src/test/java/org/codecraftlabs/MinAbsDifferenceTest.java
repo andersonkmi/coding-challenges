@@ -1,40 +1,39 @@
 package org.codecraftlabs;
 
-import org.codecraftlabs.MinAbsDifference;
 import org.hamcrest.CoreMatchers;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-public class MinAbsDifferenceTest {
+class MinAbsDifferenceTest {
     private MinAbsDifference cut;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         cut = new MinAbsDifference();
     }
 
     @Test
-    public void testCase001() {
+    void testCase001() {
         int[] arr = {-2, 2, 4};
 
         int diff = cut.minimumAbsoluteDifference(arr);
-        Assert.assertThat(diff, CoreMatchers.is(2));
+        assertThat(diff, CoreMatchers.is(2));
     }
 
     @Test
-    public void testCase002() {
+    void testCase002() {
         int[] arr = {3, -7, 0};
 
         int diff = cut.minimumAbsoluteDifference(arr);
-        Assert.assertThat(diff, CoreMatchers.is(3));
+        assertThat(diff, CoreMatchers.is(3));
     }
 
     @Test
-    public void testCase003() {
+    void testCase003() {
         int[] arr = {-59, -36, -13, 1, -53, -92, -2, -96, -54, 75};
 
         int diff = cut.minimumAbsoluteDifference(arr);
-        Assert.assertThat(diff, CoreMatchers.is(1));
+        assertThat(diff, CoreMatchers.is(1));
     }
 }

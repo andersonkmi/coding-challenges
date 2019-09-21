@@ -1,41 +1,42 @@
 package org.sharpsw.leetcode;
 
-import org.junit.Test;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
-public class ValidParenthesesTest {
+class ValidParenthesesTest {
     private ValidParentheses service;
 
-    @Before
-    public void setUp() {
+    @BeforeEach
+    void setUp() {
         service = new ValidParentheses();
     }
 
     @Test
-    public void shouldSupportEmptyInput() {
+    void shouldSupportEmptyInput() {
         assertThat(service.isValid(""), is(true));
     }
 
     @Test
-    public void shouldSupportParentheses() {
+    void shouldSupportParentheses() {
         assertThat(service.isValid("()"), is(true));
     }
 
     @Test
-    public void shouldSupportBrackets() {
+    void shouldSupportBrackets() {
         assertThat(service.isValid("[]"), is(true));
     }
 
     @Test
-    public void shouldSupportAngleBrackets() {
+    void shouldSupportAngleBrackets() {
         assertThat(service.isValid("{}"), is(true));
     }
 
     @Test
-    public void shouldSupportMixedChars() {
+    void shouldSupportMixedChars() {
         assertThat(service.isValid("{})"), is(false));
     }
 }
