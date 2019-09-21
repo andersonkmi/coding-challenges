@@ -1,24 +1,24 @@
 package org.codecraftlabs;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-public class PickingNumbersTest {
+class PickingNumbersTest {
     private PickingNumbers cut;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         cut = new PickingNumbers();
     }
 
     @Test
-    public void testCase() {
+    void testCase() {
         List<Integer> values = new ArrayList<>();
 
         values.add(66);
