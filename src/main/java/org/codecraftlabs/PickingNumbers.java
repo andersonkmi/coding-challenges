@@ -1,10 +1,11 @@
 package org.codecraftlabs;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class PickingNumbers {
-    public int pickingNumbers(List<Integer> numbers) {
+    public int pickingNumbers(@Nonnull List<Integer> numbers) {
         // Extract the distinct values and create the pairs
         List<Integer> distinctNumbers = numbers.stream().distinct().collect(Collectors.toList());
 
