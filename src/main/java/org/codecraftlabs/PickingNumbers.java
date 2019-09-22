@@ -11,9 +11,9 @@ public class PickingNumbers {
         // Iterate and create the sets
         int maxSize = 0;
         for (Integer currentValue : distinctNumbers) {
-            List<Integer> selectedValues = numbers.stream().filter(item -> item.equals(currentValue) || item.equals(currentValue + 1)).collect(Collectors.toList());
-            if (selectedValues.size() > maxSize) {
-                maxSize = selectedValues.size();
+            int size = (int) numbers.stream().filter(item -> item.equals(currentValue) || item.equals(currentValue + 1)).count();
+            if (size > maxSize) {
+                maxSize = size;
             }
         }
         return maxSize;
