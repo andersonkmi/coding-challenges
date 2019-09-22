@@ -34,4 +34,20 @@ class PickingNumbersTest {
 
         assertThat(cut.pickingNumbers(values), is(10));
     }
+
+    @Test
+    void standardTest() {
+        List<Integer> values = new ArrayList<>();
+
+        values.add(1);
+        values.add(1);
+        values.add(2);
+        values.add(2);
+        values.add(4);
+        values.add(4);
+        values.add(4);
+        values.add(5);
+        values.add(5);
+        assertThat(cut.pickingNumbers(values), is(5));
+    }
 }
