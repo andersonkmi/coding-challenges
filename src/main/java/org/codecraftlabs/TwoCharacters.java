@@ -1,7 +1,9 @@
 package org.codecraftlabs;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class TwoCharacters {
     public int alternate(String s) {
@@ -69,11 +71,7 @@ public class TwoCharacters {
             buffer2.add(value.charAt(index));
         }
 
-        if (buffer1.stream().distinct().count() == 1 && buffer2.stream().distinct().count() == 1) {
-            return true;
-        }
-
-        return false;
+        return buffer1.stream().distinct().count() == 1 && buffer2.stream().distinct().count() == 1;
     }
 
 }
