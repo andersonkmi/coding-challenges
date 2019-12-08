@@ -34,6 +34,6 @@ class SubDomainVisitCountTest {
         items.add("5 wiki.org");
 
         var result = service.subdomainVisits(items.toArray(String[]::new));
-        assertThat(result.size(), is(3));
+        assertThat(result.size(), is(7));
     }
 }
