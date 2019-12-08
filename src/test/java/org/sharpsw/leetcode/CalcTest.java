@@ -1,9 +1,11 @@
 package org.sharpsw.leetcode;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@Disabled
 class CalcTest {
     private Calc calc = new Calc();
 
