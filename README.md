@@ -1,4 +1,4 @@
-# Leetcode coding exercises in Java [![Build Status](https://travis-ci.org/andersonkmi/leetcode-exercises.svg?branch=master)](https://travis-ci.org/andersonkmi/leetcode-exercises)
+# Leetcode coding exercises in Java [![Build Status](https://travis-ci.org/andersonkmi/coding-challenges.svg?branch=master)](https://travis-ci.org/andersonkmi/coding-challenges)
 
 Writing the exercises in leetcode.com using Java language.
 
