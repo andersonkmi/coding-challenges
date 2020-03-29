@@ -1,10 +1,9 @@
 package org.sharpsw.codility;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
-public class StringUtil {
-    public String mkString(List<String> items, String delimiter) {
+public class StringUtil <T>{
+    public String mkString(Collection<T> items, String delimiter) {
         if (items == null || items.isEmpty()) {
             return "";
         }
@@ -15,14 +14,14 @@ public class StringUtil {
 
         StringBuilder buffer = new StringBuilder();
         items.forEach(item -> {
-            buffer.append(item).append(delimiter);
+            buffer.append(item.toString()).append(delimiter);
         });
 
         String partialResult = buffer.toString();
         return removeTrailingChars(partialResult, delimiter);
     }
 
-    public String mkString(List<String> items, String start, String delimiter, String end) {
+    public String mkString(Collection<T> items, String start, String delimiter, String end) {
         String partialResult = mkString(items, delimiter);
         return start + partialResult + end;
     }
@@ -38,18 +37,5 @@ public class StringUtil {
 
         String newValue = input.substring(0, input.length() - 1);
         return removeTrailingCharacters(newValue, position - 1);
-    }
-
-    public static void main (String[] args) throws Exception {
-        StringUtil util = new StringUtil();
-        List<String> teste = new ArrayList<>();
-        teste.add("item 1");
-        teste.add("item 2");
-        teste.add("item 3");
-        String value = util.mkString(teste, ", ");
-        System.out.println(value);
-
-        String value2 = util.mkString(teste, "[", ", ", "]");
-        System.out.println(value2);
     }
 }
