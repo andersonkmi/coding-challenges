@@ -2,12 +2,13 @@ package org.sharpsw.leetcode;
 
 import java.util.*;
 
+import static java.util.Collections.unmodifiableList;
+
 public class BinaryTreeLevelOrderTraversal {
     public List<List<Integer>> levelOrder(TreeNode root) {
         Map<Integer, List<Integer>> result = new LinkedHashMap<>();
         visitNode(root, result, 0);
-        List<List<Integer>> elements = new LinkedList<>(result.values());
-        return elements;
+        return unmodifiableList(new LinkedList<>(result.values()));
     }
 
     private void visitNode(TreeNode node, Map<Integer, List<Integer>> numbersVisitedPerLevel, int currentLevel) {
@@ -35,6 +36,6 @@ public class BinaryTreeLevelOrderTraversal {
         root.right = right;
 
         List<List<Integer>> values = service.levelOrder(root);
-        values.forEach(item -> System.out.println(item));
+        values.forEach(System.out::println);
     }
 }
