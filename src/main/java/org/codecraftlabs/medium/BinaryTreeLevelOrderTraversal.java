@@ -1,9 +1,12 @@
-package org.sharpsw.leetcode;
+package org.codecraftlabs.medium;
 
 import java.util.*;
 
 import static java.util.Collections.unmodifiableList;
 
+/**
+ * This class implements an approach to the tree level traversal coding challenge.
+ */
 public class BinaryTreeLevelOrderTraversal {
     public List<List<Integer>> levelOrder(TreeNode root) {
         Map<Integer, List<Integer>> result = new LinkedHashMap<>();

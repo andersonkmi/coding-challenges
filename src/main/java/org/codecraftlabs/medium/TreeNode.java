@@ -1,6 +1,6 @@
-package org.sharpsw.leetcode;
+package org.codecraftlabs.medium;
 
-public class TreeNode {
+class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;

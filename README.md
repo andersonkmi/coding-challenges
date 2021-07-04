@@ -27,6 +27,7 @@ to keep up with the language and learn how to use the Scala test library as well
 * Divisible sum pairs (https://www.hackerrank.com/challenges/divisible-sum-pairs/problem)
 * Migratory birds (https://www.hackerrank.com/challenges/migratory-birds/problem)
 * Get node value (https://www.hackerrank.com/challenges/get-the-value-of-the-node-at-a-specific-position-from-the-tail/problem)
+* Level order traversal
 
 ## Versions
 * v1.0.14.0 (12/03/2018) - Sock merchant exercise.
