@@ -18,4 +18,13 @@ public class NextGreaterElement {
         }
         return -1;
     }
+
+    private int findValue(int reference, int[] array) {
+        for (int index = 0; index < array.length; index++) {
+            if (array[index] > reference) {
+                return array[index];
+            }
+        }
+        return -1;
+    }
 }
