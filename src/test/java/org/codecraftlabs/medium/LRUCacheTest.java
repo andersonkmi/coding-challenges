@@ -36,4 +36,17 @@ public class LRUCacheTest {
         assertThat(lruCache.get(2), is(2));
         assertThat(lruCache.get(1), is(1));
     }
+
+    @Test
+    public void removeLeastRecentlyUsedIndexMoreItems() {
+        lruCache.put(3, 3);
+        lruCache.put(2, 2);
+        lruCache.put(1, 1);
+        lruCache.put(0, 0);
+
+        assertThat(lruCache.get(3), is(-1));
+        assertThat(lruCache.get(2), is(-1));
+        assertThat(lruCache.get(1), is(1));
+        assertThat(lruCache.get(0), is(0));
+    }
 }

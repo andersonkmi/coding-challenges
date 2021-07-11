@@ -20,14 +20,13 @@ public class LRUCache {
             return -1;
         }
 
-        reshuffleKey(key);
+        insertKeyInFirstPosition(key);
         return cache.get(key);
     }
 
     public void put(int key, int value) {
-        reshuffleKey(key);
+        insertKeyInFirstPosition(key);
         if (cache.size() >= capacity) {
-            // Returns the last element from the list
             Integer lruKey = keyUses.getLast();
             cache.remove(lruKey);
             keyUses.remove(lruKey);
@@ -35,7 +34,7 @@ public class LRUCache {
         cache.put(key, value);
     }
 
-    private void reshuffleKey(int key) {
+    private void insertKeyInFirstPosition(int key) {
         if (keyUses.contains(key)) {
             keyUses.remove((Integer) key);
         }
