@@ -49,4 +49,15 @@ public class LRUCacheTest {
         assertThat(lruCache.get(1), is(1));
         assertThat(lruCache.get(0), is(0));
     }
+
+    @Test
+    public void leetcodeSampleTest() {
+        assertThat(lruCache.get(2), is(-1));
+        lruCache.put(2, 6);
+        assertThat(lruCache.get(1), is(-1));
+        lruCache.put(1, 5);
+        lruCache.put(1, 2);
+        assertThat(lruCache.get(1), is(2));
+        assertThat(lruCache.get(2), is(6));
+    }
 }

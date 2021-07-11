@@ -26,10 +26,12 @@ public class LRUCache {
 
     public void put(int key, int value) {
         insertKeyInFirstPosition(key);
-        if (cache.size() >= capacity) {
-            Integer lruKey = keyUses.getLast();
-            cache.remove(lruKey);
-            keyUses.remove(lruKey);
+        if (! cache.containsKey(key)) {
+            if (cache.size() >= capacity) {
+                Integer lruKey = keyUses.getLast();
+                cache.remove(lruKey);
+                keyUses.remove(lruKey);
+            }
         }
         cache.put(key, value);
     }
