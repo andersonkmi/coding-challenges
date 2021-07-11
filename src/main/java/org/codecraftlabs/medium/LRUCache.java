@@ -19,14 +19,13 @@ public class LRUCache {
         if (!cache.containsKey(key)) {
             return -1;
         }
-
         insertKeyInFirstPosition(key);
         return cache.get(key);
     }
 
     public void put(int key, int value) {
         insertKeyInFirstPosition(key);
-        if (! cache.containsKey(key)) {
+        if (!cache.containsKey(key)) {
             if (cache.size() >= capacity) {
                 Integer lruKey = keyUses.getLast();
                 cache.remove(lruKey);
