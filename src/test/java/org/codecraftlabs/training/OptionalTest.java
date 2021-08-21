@@ -194,4 +194,18 @@ public class OptionalTest {
         correctPassword = optional.map(String::trim).filter(pass -> pass.equals("password")).isPresent();
         assertTrue(correctPassword);
     }
+
+    @Test
+    public void optionalWithFlatMap() {
+        Person person = new Person("test", 26);
+        Optional<Person> personOptional = Optional.of(person);
+
+        Optional<Optional<String>> nameOptionalWrapper = personOptional.map(Person::getName);
+        Optional<String> nameOptional = nameOptionalWrapper.orElseThrow(IllegalArgumentException::new);
+        String name1 = nameOptional.orElse("");
+        assertEquals("test", name1);
+
+        String name = personOptional.flatMap(Person::getName).orElse("");
+        assertEquals("test", name);
+    }
 }
