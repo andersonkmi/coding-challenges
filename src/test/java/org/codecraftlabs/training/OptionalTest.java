@@ -183,4 +183,15 @@ public class OptionalTest {
         int size = optional.map(String::length).orElse(0);
         assertEquals(4, size);
     }
+
+    @Test
+    public void optionalWithFilterAndMap() {
+        var password = " password ";
+        var optional = Optional.of(password);
+        boolean correctPassword = optional.filter(pass -> pass.equals("password")).isPresent();
+        assertFalse(correctPassword);
+
+        correctPassword = optional.map(String::trim).filter(pass -> pass.equals("password")).isPresent();
+        assertTrue(correctPassword);
+    }
 }
