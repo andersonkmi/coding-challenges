@@ -3,6 +3,7 @@ package org.codecraftlabs.training;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import javax.annotation.Nonnull;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -131,5 +132,35 @@ public class OptionalTest {
         var optional = Optional.of("test");
         String name = optional.get();
         assertEquals("test", name);
+    }
+
+    @Test
+    public void getValueWithNullOptional() {
+        var optional = Optional.ofNullable(null);
+        assertThrows(NoSuchElementException.class, () -> optional.get());
+    }
+
+    @Test
+    public void filter() {
+        Integer year = 2016;
+        var yearOptional = Optional.of(year);
+        boolean isYear2016 = yearOptional.filter(value -> value == 2016).isPresent();
+        assertTrue(isYear2016);
+
+        boolean isMissingYear2017 = yearOptional.filter(value -> value == 2017).isEmpty();
+        assertTrue(isMissingYear2017);
+    }
+
+    @Test
+    public void filterWithOptional() {
+        assertTrue(isPriceInRange(new Modem(10.0)));
+        assertFalse(isPriceInRange(new Modem(9.9)));
+        assertFalse(isPriceInRange(new Modem(null)));
+        assertFalse(isPriceInRange(new Modem(15.5)));
+        assertFalse(isPriceInRange(null));
+    }
+
+    private boolean isPriceInRange(@Nonnull Modem modem) {
+        return Optional.ofNullable(modem).map(Modem::getPrice).filter(price -> price >= 10).filter(price -> price <= 15).isPresent();
     }
 }
