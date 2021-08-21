@@ -1,5 +1,6 @@
-package org.codecraftlabs;
+package org.codecraftlabs.training;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
@@ -24,6 +25,6 @@ public class OptionalTest {
     @Test
     public void givenNull_whenThrowsErrorOnCreate_thenCorrect() {
         String name = null;
-        Optional.of(name);
+        Assertions.assertThrows(NullPointerException.class, () -> Optional.of(name));
     }
 }
