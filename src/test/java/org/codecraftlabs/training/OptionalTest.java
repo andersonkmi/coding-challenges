@@ -3,10 +3,12 @@ package org.codecraftlabs.training;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class OptionalTest {
@@ -108,5 +110,26 @@ public class OptionalTest {
     private String getDefaultValue() {
         System.out.println("Getting default value");
         return "Default Value";
+    }
+
+    @Test
+    public void orElseThrowTest() {
+        String nullName = null;
+        assertThrows(IllegalArgumentException.class,
+                () -> Optional.ofNullable(nullName).orElseThrow(IllegalArgumentException::new));
+    }
+
+    @Test
+    public void orElseThrowNoSuchElement() {
+        String nullName = null;
+        assertThrows(NoSuchElementException.class,
+                () -> Optional.ofNullable(nullName).orElseThrow());
+    }
+
+    @Test
+    public void getValueWithOptional() {
+        var optional = Optional.of("test");
+        String name = optional.get();
+        assertEquals("test", name);
     }
 }
