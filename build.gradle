@@ -26,6 +26,9 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    testLogging {
+        showStandardStreams = true
+    }
 }
 
 // In this section you declare where to find the dependencies of your project

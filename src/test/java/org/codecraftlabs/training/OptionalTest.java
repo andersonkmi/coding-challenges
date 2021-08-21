@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -49,5 +50,34 @@ public class OptionalTest {
 
         optional = Optional.ofNullable(null);
         assertFalse(optional.isPresent());
+    }
+
+    @Test
+    public void givenAnEmptyOptional_thenIsEmptyBehavesAsExpected() {
+        var optional = Optional.of("value");
+        assertFalse(optional.isEmpty());
+
+        optional = Optional.ofNullable(null);
+        assertTrue(optional.isEmpty());
+    }
+
+    @Test
+    public void verifyIfPresentWithOptional() {
+        var optional = Optional.of("value");
+        optional.ifPresent(name -> System.out.println(name.length()));
+    }
+
+    @Test
+    public void verifyOrElse() {
+        String nullName = null;
+        String name = Optional.ofNullable(nullName).orElse("test");
+        assertEquals("test", name);
+    }
+
+    @Test
+    public void orElseGet() {
+        String nullName = null;
+        String name = Optional.ofNullable(nullName).orElseGet(() -> "test");
+        assertEquals("test", name);
     }
 }
