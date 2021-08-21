@@ -8,6 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -207,5 +209,51 @@ public class OptionalTest {
 
         String name = personOptional.flatMap(Person::getName).orElse("");
         assertEquals("test", name);
+    }
+
+    @Test
+    public void givenThreeOptionals_whenChaining_thenFirstNonEmptyIsReturnedAndRestNotEvaluated() {
+        Optional<String> found =
+                Stream.<Supplier<Optional<String>>>of(this::getEmpty, this::getHello, this::getBye)
+                        .map(Supplier::get)
+                        .filter(Optional::isPresent)
+                        .map(Optional::get)
+                        .findFirst();
+
+        assertEquals(getHello(), found);
+    }
+
+    private Optional<String> getEmpty() {
+        return Optional.empty();
+    }
+
+    private Optional<String> getHello() {
+        return Optional.of("hello");
+    }
+
+    private Optional<String> getBye() {
+        return Optional.of("bye");
+    }
+
+    private Optional<String> createOptional(String input) {
+        if (input == null || "".equals(input) || "empty".equals(input)) {
+            return Optional.empty();
+        }
+        return Optional.of(input);
+    }
+
+    @Test
+    public void givenTwoEmptyOptionals_whenChaining_thenDefaultIsReturned() {
+        String found = Stream.<Supplier<Optional<String>>>of(
+                        () -> createOptional("empty"),
+                        () -> createOptional("empty")
+                )
+                .map(Supplier::get)
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .findFirst()
+                .orElseGet(() -> "default");
+
+        assertEquals("default", found);
     }
 }
