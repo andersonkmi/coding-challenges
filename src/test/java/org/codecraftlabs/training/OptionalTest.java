@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import javax.annotation.Nonnull;
+import java.util.Arrays;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -162,5 +164,23 @@ public class OptionalTest {
 
     private boolean isPriceInRange(@Nonnull Modem modem) {
         return Optional.ofNullable(modem).map(Modem::getPrice).filter(price -> price >= 10).filter(price -> price <= 15).isPresent();
+    }
+
+    @Test
+    public void optionalWithMapScenario1() {
+        List<String> companyNames = Arrays.asList("paypal", "oracle", "", "microsoft", "", "apple");
+        Optional<List<String>> listOptional = Optional.of(companyNames);
+
+        int size = listOptional.map(List::size).orElse(0);
+        assertEquals(6, size);
+    }
+
+    @Test
+    public void optionalWithMapScenario2() {
+        var name = "test";
+        var optional = Optional.of(name);
+
+        int size = optional.map(String::length).orElse(0);
+        assertEquals(4, size);
     }
 }
