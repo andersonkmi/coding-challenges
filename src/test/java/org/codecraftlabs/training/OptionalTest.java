@@ -80,4 +80,33 @@ public class OptionalTest {
         String name = Optional.ofNullable(nullName).orElseGet(() -> "test");
         assertEquals("test", name);
     }
+
+    @Test
+    public void orElseAndOrElseGetOverlap() {
+        String text = null;
+
+        String defaultText = Optional.ofNullable(text).orElseGet(this::getDefaultValue);
+        assertEquals("Default Value", defaultText);
+
+        defaultText = Optional.ofNullable(text).orElse(getDefaultValue());
+        assertEquals("Default Value", defaultText);
+    }
+
+    @Test
+    public void orElseAndOrElseGetDifference() {
+        String text = "Text present";
+
+        System.out.println("Using orElseGet:");
+        String defaultText = Optional.ofNullable(text).orElseGet(this::getDefaultValue);
+        assertEquals("Text present", defaultText);
+
+        System.out.println("Using orElse:");
+        defaultText = Optional.ofNullable(text).orElse(getDefaultValue());
+        assertEquals("Text present", defaultText);
+    }
+
+    private String getDefaultValue() {
+        System.out.println("Getting default value");
+        return "Default Value";
+    }
 }
