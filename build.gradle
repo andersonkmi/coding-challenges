@@ -6,21 +6,15 @@
  * user guide available at https://docs.gradle.org/4.5/userguide/java_library_plugin.html
  */
 
-apply plugin: 'jacoco'
 apply plugin: 'java'
-
-jacoco {
-    toolVersion = "0.8.2"
-    reportsDirectory = file("$buildDir/customJacocoReportDir")
-}
 
 dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation 'com.google.guava:guava:31.1-android'
+    implementation 'com.google.guava:guava:33.2.1-jre'
 
     // Use JUnit test framework
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
     testImplementation 'org.hamcrest:hamcrest-library:2.2'
 }
 
